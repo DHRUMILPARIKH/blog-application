@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Folder structure
+## User Related components
+* A Login component, which we are going to show when the user is not logged in yet
+* A Register component, which we are also going to show when the user is not logged in yet
+* A Logout component, which is going to be shown after the user is logged in
+* A UserBar component, which will display the other components conditionally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Post Related componenets
+* A Post component to display a single post
+* A CreatePost component for creating new posts
+* A PostList component to show multiple posts
 
-## Available Scripts
+## ***Note:*** The static Register component will be very similar to the Login component, with an additional field to repeat the password. You might get the idea to merge them into one component if they are so similar, and add a prop to toggle the Repeat password field. However, **It is best to stick to the single responsibility principle, and to have each component deal with only one functionality.**
+------------------------------------------------------------------------------------------------
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# React Notes
+## Folder structure
+* It is a good idea to start with a simple structure at first, and only nest more deeply when you actually need it. Do not spend too much time thinking about the file structure when starting a project, because usually, you do not know up front how files should be grouped.
+* There are many ways that projects can be structured, and different structures can do well for different projects. Usually, we create a src/ folder, and group our files there by features. Another popular way to structure projects is to group them by routes. For some projects, it might make sense to additionally separate by the kind of code, such as src/api/ and src/components/. 
+* Using semantic HTML elements such as <form> and <label> make your app easier to navigate for people using accessibility assistance software, such as screen readers. Furthermore, when using semantic HTML, keyboard shortcuts, such as submitting forms by pressing the return key, automatically work.
+* It is a good idea to group imports in blocks of code that belong together. In this case, we separate external imports, such as React, from local imports, such as our Login component, by adding an empty line in between. Doing so keeps our code readable, especially when we add more import statements later.
+* We can use React.Fragment instead of a <div> container element. This keeps our UI tree clean, as the comp*onents will simply be rendered side by side, instead of being wrapped in another element
+* If we are rendering a list of elements, we have to give each element a unique key prop. React uses this key prop to efficiently compute the difference of two lists, when the data has changed
